@@ -19,6 +19,11 @@ You can contact the authors at <martin.scheiber@ieee.org>, <christian.brommer@ie
   <arg name="dev_baud"              default="" /> <!--ignored if empty -->
   <arg name="px4_config_file"       default="$(find mavros)/launch/px4_config.yaml" />
   <arg name="px4_pluginlists_file"  default="$(find mavros)/launch/px4_pluginlists.yaml" />
+  <arg name="ros_ns"                default="" />
+
+  <!-- topic prefix for namespace -->
+  <arg name="topic_prefix"  value="/$(arg ros_ns)" if="$(eval arg('ros_ns') != '')" />
+  <arg name="topic_prefix"  value="" unless="$(eval arg('ros_ns') != '')" />
 
   <!-- Optitrack Arguments -->
   <arg name="use_gps"               default="False" />
