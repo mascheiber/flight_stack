@@ -165,9 +165,14 @@ px4_topics=(
 "/mavros/global_position/raw/gps_vel"
 "/mavros/global_position/raw/satellites"
 "/mavros/imu/static_pressure"
+"/mavros/imu/diff_pressure"
 "/mavros/imu/temperature_imu"
+"/mavros/imu/temperature_baro"
 "/mavros/motor_speeds/speed"
 "/mavros/battery"
+"/mavros/rc/in"
+"/mavros/rc/out"
+"/mavros/rc/override"
 )
 
 mocap_vehicle_topics=(
@@ -179,6 +184,8 @@ autonomy_topics=(
 "/autonomy/response"
 "/autonomy/logger"
 "/toland/is_landed"
+"/toland_detector/is_landed"
+"/toland_detector/is_takeoff"
 )
 
 ms_topics=(
