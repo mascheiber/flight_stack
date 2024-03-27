@@ -46,6 +46,8 @@ You can contact the authors at <martin.scheiber@ieee.org>, <christian.brommer@ie
   <arg name="toland_default"            default="disabled" /> <!-- baro is too unreliable as AGL sensor for landing detection -->
   <arg name="angle_threshold"           default="10.0" />
   <arg name="distance_threshold"        default="0.38" />
+  <arg name="toland_window_s"           default="1.0" />
+  <arg name="toland_use_median"         default="false" />
 
   <!-- Supervisor parameter -->
   <arg name="topic_to_supervise"        default="$(arg topic_prefix)/mavros/vision_pose/pose" />
@@ -83,6 +85,8 @@ You can contact the authors at <martin.scheiber@ieee.org>, <christian.brommer@ie
       <arg name="default_sensor"      value="$(arg toland_default)" />
       <arg name="angle_threshold"     value="$(arg angle_threshold)" />
       <arg name="distance_threshold"  value="$(arg distance_threshold)" />
+      <arg name="sensor_readings_window"  value="$(arg toland_window_s)" />
+      <arg name="use_median"              value="$(arg toland_use_median)" />
     </include>
   </group>
 </launch>
