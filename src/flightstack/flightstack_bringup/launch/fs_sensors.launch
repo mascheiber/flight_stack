@@ -19,6 +19,7 @@ You can contact the authors at <martin.scheiber@ieee.org>, <christian.brommer@ie
   <arg name="dev_baud"              default="" /> <!--ignored if empty -->
   <arg name="px4_config_file"       default="$(find mavros)/launch/px4_config.yaml" />
   <arg name="px4_pluginlists_file"  default="$(find mavros)/launch/px4_pluginlists.yaml" />
+  <arg name="px4_autorestart"       default="False" />
   <arg name="ros_ns"                default="" />
 
   <!-- topic prefix for namespace -->
@@ -39,6 +40,7 @@ You can contact the authors at <martin.scheiber@ieee.org>, <christian.brommer@ie
 
       <arg name="config_file"       value="$(arg px4_config_file)" />
       <arg name="pluginlists_file"  value="$(arg px4_pluginlists_file)" />
+      <arg name="respawn_mavros"    value="$(arg px4_autorestart)" />
     </include>
     <include file="$(find flightstack_bringup)/launch/individual/optitrack_aau_dronehall.launch" unless="$(arg use_gps)">
       <arg name="object_name"       value="$(arg optitrack_object_name)" />
