@@ -27,9 +27,11 @@ You can contact the authors at <martin.scheiber@ieee.org>, <christian.brommer@ie
   <arg name="topic_prefix"  value="" unless="$(eval arg('ros_ns') != '')" />
 
   <!-- Optitrack Arguments -->
-  <arg name="use_gps"               default="False" />
-  <arg name="optitrack_object_name" default="$(env FS_OPTITRACK_OBJECT_NAME)" />
-  <arg name="optitrack_throttle"    default="False" />
+  <arg name="use_gps"                 default="False" />
+  <arg name="optitrack_object_name"   default="$(env FS_OPTITRACK_OBJECT_NAME)" />
+  <arg name="optitrack_throttle"      default="False" />
+  <arg name="optitrack_throttle_rate" default="30" />
+  <arg name="optitrack_remap_to_ctrl" default="$(arg optitrack_throttle)" />
 
   <!-- Device 1 -->
   <group if="$(eval arg('dev_id') == 1)">
@@ -45,6 +47,8 @@ You can contact the authors at <martin.scheiber@ieee.org>, <christian.brommer@ie
     <include file="$(find flightstack_bringup)/launch/individual/optitrack_aau_dronehall.launch" unless="$(arg use_gps)">
       <arg name="object_name"       value="$(arg optitrack_object_name)" />
       <arg name="throttle"          value="$(arg optitrack_throttle)" />
+      <arg name="throttle_rate"     value="$(arg optitrack_throttle_rate)" />
+      <arg name="remap_to_ctrl"     value="$(arg optitrack_remap_to_ctrl)" />
     </include>
   </group>
 

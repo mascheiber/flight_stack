@@ -211,6 +211,8 @@ est_topics=(
 "/mavros/local_position/pose_cov"
 "/mavros/local_position/odom"
 "/mavros/local_position/odom_cov"
+"/mavros/external_state/external_state"
+"/mavros/external_state_lite/external_state_lite"
 )
 
 mars_topics=(
